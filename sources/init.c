@@ -6,18 +6,18 @@
 /*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 15:55:54 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/14 16:21:36 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/14 18:50:15 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int		player_init(t_filler *filler, char *line)
+int		init_player(t_filler *filler, char *line)
 {
 
 }
 
-int		filler_init()
+int		init_filler()
 {
 	t_filler *filler;
 
@@ -27,13 +27,13 @@ int		filler_init()
 		filler->enemy = 0;
 		filler->x = 0;
 		filler->y = 0;
-		filler->plateau = plateau_init();
-		filler->peace = peace_init();
+		filler->plateau = init_plateau();
+		filler->piece = init_peace();
 	}
 	return (filler);
 }
 
-int		plateau_init()
+int		init_plateau()
 {
 	t_plateau *plateau;
 	if ((plateau = (t_plateau *)ft_memalloc(sizeof(t_plateau))))
@@ -45,14 +45,14 @@ int		plateau_init()
 	return (plateau);
 }
 
-int		peace_init()
+int		init_piece()
 {
-	t_peace		*peace;
-	if ((peace = (t_peace *)ft_memalloc(sizeof(t_peace))))
+	t_piece		*piece;
+	if ((piece = (t_piece *)ft_memalloc(sizeof(t_piece))))
 	{
-		peace->height = 0;
-		peace->width = 0;
-		peace->map = NULL;
+		piece->height = 0;
+		piece->width = 0;
+		piece->map = NULL;
 	}
-	return(peace);
+	return(piece);
 }

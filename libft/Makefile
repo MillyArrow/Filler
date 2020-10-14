@@ -6,21 +6,40 @@
 #    By: marrow <marrow@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/05 21:44:43 by marrow            #+#    #+#              #
-#    Updated: 2020/10/12 19:29:44 by marrow           ###   ########.fr        #
+#    Updated: 2020/10/14 18:28:50 by marrow           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# LIBNAME
+
 NAME = libft.a
+
+# COMPILER
+
 CC = gcc
 FLAGS = -Wall -Werror -Wextra -O3 -c
+
+# COLORS
+
+GREEN = \033[0;32m
+RED = \033[0;31m
+RESET = \033[0m
+
+# HEADERS
+
+HEADERS_DIRECTORY = ./includes/
 INCLUDES = -I$(HEADERS_DIRECTORY)
 HEADERS_LIST = \
 	libft.h\
-
-HEADERS_DIRECTORY = ./includes/
+	ft_printf.h
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
-SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST = \
+
+# LIBFT
+
+DIR_SRC_LIBFT = ./sources/
+DIR_OBJ_LIBFT = objects/
+
+SRC_LIBFT = \
 		ft_atoi.c \
 		ft_bzero.c \
 		ft_create_elem.c \
@@ -91,41 +110,65 @@ SOURCES_LIST = \
 		ft_putnbrll.c \
 		ft_get_number.c
 
-SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
-OBJECTS_DIRECTORY = objects/
-OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
-OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
+# PRINTF
 
-# COLORS
+DIR_PRINTF = ft_printf
+DIR_SRC_PRINTF = $(DIR_PRINTF)/sources/
+DIR_OBJ_PRINTF = $(DIR_PRINTF)/objects/
 
-GREEN = \033[0;32m
-RED = \033[0;31m
-RESET = \033[0m
+SRC_PRINTF = \
+		ft_big_x.c \
+		ft_c.c \
+		ft_d.c \
+		ft_e.c \
+		ft_f.c \
+		ft_f_func.c \
+		ft_format_specifier.c \
+		ft_o.c \
+		ft_p.c \
+		ft_pct.c \
+		ft_printf.c \
+		ft_s.c \
+		ft_setcolor.c \
+		ft_type.c \
+		ft_u.c \
+		ft_width.c \
+		ft_x.c
 
-# MAKEFLAGS += -j
+# FILE PATH TO LIBFT SRC/OBJ FILES
+
+SRCS_LIBFT = $(addprefix $(DIR_SRC_LIBFT), $(SRC_LIBFT))
+OBJS_LIBFT = $(addprefix $(DIR_OBJ_LIBFT), $(SRC_LIBFT:.c=.o))
+
+#FILE PATH TO PRINTF SRC/OBJ FILES
+
+SRCS_PRINTF = $(addprefix $(DIR_SRC_PRINTF), $(SRC_PRINTF))
+OBJS_PRINTF = $(addprefix $(DIR_OBJ_PRINTF), $(SRC_PRINTF:.c=.o))
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@ar rc $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
+$(NAME): $(SRCS_LIBFT) $(OBJS_LIBFT) $(SRCS_PRINTF) $(OBJS_PRINTF) $(HEADERS)
+	@ar rcs $(NAME) $(OBJS_LIBFT) $(OBJS_PRINTF)
 	@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 
-$(OBJECTS_DIRECTORY):
-	@mkdir -p $(OBJECTS_DIRECTORY)
-	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
+$(DIR_OBJ_LIBFT)%.o: $(DIR_SRC_LIBFT)%.c
+	@mkdir -p $(DIR_OBJ_LIBFT)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@echo "$(GREEN).$(RESET)\c"
 
-$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
-	@$(CC) $(FLAGS) $(INCLUDES) $< -o $@
+$(DIR_OBJ_PRINTF)%.o: $(DIR_SRC_PRINTF)%.c
+	@mkdir -p $(DIR_OBJ_PRINTF)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@echo "$(GREEN).$(RESET)\c"
 
 clean:
-	@rm -rf $(OBJECTS_DIRECTORY)
-	@echo "$(NAME): $(RED)$(OBJECTS_DIRECTORY) was deleted$(RESET)"
-	@echo "$(NAME): $(RED)object files were deleted$(RESET)"
+	@rm -rf $(DIR_OBJ_LIBFT)
+	@rm -rf $(DIR_OBJ_PRINTF)
+	@echo "$(NAME): $(RED)$(DIR_OBJ_LIBFT) was deleted$(RESET)"
+	@echo "$(NAME): $(RED)$(DIR_OBJ_PRINTF) was deleted$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)

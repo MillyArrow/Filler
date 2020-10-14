@@ -6,7 +6,7 @@
 /*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 17:18:41 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/14 16:26:43 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/14 18:34:51 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int		plateau_parse(t_filler *filler, char *line)
 	filler->plateau->width = ft_atoi(split_line[2]);
 	filler->plateau->heat_map = (char **)ft_memalloc(
 		sizeof(char) * (filler->plateau->height + 1));
-	
 
+	
 }
