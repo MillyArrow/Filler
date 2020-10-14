@@ -6,14 +6,15 @@
 #    By: marrow <marrow@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/12 18:25:26 by marrow            #+#    #+#              #
-#    Updated: 2020/10/12 19:37:48 by marrow           ###   ########.fr        #
+#    Updated: 2020/10/14 21:51:27 by marrow           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = marrow.filler
 
 CC = gcc
-FLAGS =	-Wall -Wextra -Werror -O3 -c
+FLAGS =
+#-Wall -Wextra -Werror -O3 -c
 LIBRARIES = -lft -L$(LIBFT_DIRECTORY)
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS)
 
@@ -26,7 +27,11 @@ HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
 SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST =
+SOURCES_LIST = \
+	main.c \
+	tools.c \
+	init.c \
+	solver.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 OBJECTS_DIRECTORY = objects/

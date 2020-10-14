@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 03:46:46 by marrow            #+#    #+#             */
-/*   Updated: 2020/02/28 08:52:00 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/14 21:34:43 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,6 @@ int				get_next_line(const int fd, char **line);
 int				ft_get_number(const char *c, size_t *i);
 int				ft_number_length(int64_t number, int base);
 void			ft_putnbrll(__int64_t n, int base);
+void			ft_sdel(void ***arr);
 
 #endif

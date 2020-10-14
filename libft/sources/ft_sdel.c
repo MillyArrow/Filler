@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plateau_parce.c                                    :+:      :+:    :+:   */
+/*   ft_arrdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/13 17:18:41 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/14 18:34:51 by marrow           ###   ########.fr       */
+/*   Created: 2020/10/14 20:25:31 by marrow            #+#    #+#             */
+/*   Updated: 2020/10/14 21:34:26 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <filler.h>
+#include "libft.h"
 
-int		plateau_parse(t_filler *filler, char *line)
+void			ft_sdel(void ***arr)
 {
-	int i;
-	int j;
-	char **split_line;
-
-	i = 0;
-	j = 0;
-	if (!(split_line = ft_strsplit(line,' ')))
-		return (NULL);
-	filler->plateau->height = ft_atoi(split_line[1]);
-	filler->plateau->width = ft_atoi(split_line[2]);
-	filler->plateau->heat_map = (char **)ft_memalloc(
-		sizeof(char) * (filler->plateau->height + 1));
-
-	
+	if (!(arr))
+		return ;
+	while (**arr)
+	{
+		ft_strdel((char **)*arr);
+		(*arr)++;
+	}
 }

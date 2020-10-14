@@ -6,34 +6,30 @@
 /*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 15:55:54 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/14 18:50:15 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/14 21:32:57 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int		init_player(t_filler *filler, char *line)
-{
-
-}
-
-int		init_filler()
+t_filler		*init_filler()
 {
 	t_filler *filler;
 
+	filler = NULL;
 	if ((filler = (t_filler *)ft_memalloc(sizeof(t_filler))))
 	{
 		filler->player = 0;
 		filler->enemy = 0;
 		filler->x = 0;
 		filler->y = 0;
-		filler->plateau = init_plateau();
-		filler->piece = init_peace();
+		filler->plateau = NULL;
+		filler->piece = NULL;
 	}
-	return (filler);
+	return(filler);
 }
 
-int		init_plateau()
+t_plateau		*init_plateau()
 {
 	t_plateau *plateau;
 	if ((plateau = (t_plateau *)ft_memalloc(sizeof(t_plateau))))
@@ -42,10 +38,10 @@ int		init_plateau()
 		plateau->height = 0;
 		plateau->heat_map = NULL;
 	}
-	return (plateau);
+	return(plateau);
 }
 
-int		init_piece()
+t_piece			*init_piece()
 {
 	t_piece		*piece;
 	if ((piece = (t_piece *)ft_memalloc(sizeof(t_piece))))

@@ -6,7 +6,7 @@
 #    By: marrow <marrow@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/05 21:44:43 by marrow            #+#    #+#              #
-#    Updated: 2020/10/14 18:28:50 by marrow           ###   ########.fr        #
+#    Updated: 2020/10/14 21:34:50 by marrow           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ DIR_SRC_LIBFT = ./sources/
 DIR_OBJ_LIBFT = objects/
 
 SRC_LIBFT = \
+		ft_sdel.c \
 		ft_atoi.c \
 		ft_bzero.c \
 		ft_create_elem.c \
