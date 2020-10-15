@@ -6,7 +6,7 @@
 /*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 19:51:33 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/14 21:43:01 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/15 17:26:17 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int				solve();
 int				check_player(t_filler *filler, char *line);
 int				get_size(int *height, int *width, char *line);
 int				create_map(t_filler *filler, char *line);
+int				create_piece(t_filler *filler,char *line);
 void			parse_plateau(t_filler *filler,char *line);
+void			parse_piece(t_filler *filler, char *line);
 
 #endif

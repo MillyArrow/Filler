@@ -6,7 +6,7 @@
 /*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 15:55:54 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/14 21:32:57 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/15 14:36:11 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_filler		*init_filler()
 		filler->enemy = 0;
 		filler->x = 0;
 		filler->y = 0;
-		filler->plateau = NULL;
-		filler->piece = NULL;
+		filler->plateau = init_plateau();
+		filler->piece = init_piece();
 	}
 	return(filler);
 }
