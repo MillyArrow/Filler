@@ -19,6 +19,8 @@
 # define NAME "marrow.filler"
 # define TRUE 1
 # define FALSE 0
+# define ABS(x) ((x > 0) ? (x) : (-x))
+
 
 typedef struct	s_plateau
 {
@@ -56,5 +58,10 @@ int				create_map(t_filler *filler, char *line);
 int				create_piece(t_filler *filler,char *line);
 void			parse_plateau(t_filler *filler,char *line);
 void			parse_piece(t_filler *filler, char *line);
+int				manhattan_distance(int i, int x, int j, int y);
+int				calc_distance(t_filler *filler, int x, int y);
+void			calc_heat_map(t_filler *filler);
+void			put_piece(t_filler *filler);
+int				sum_around(t_filler *filler, int x, int y);
 
 #endif

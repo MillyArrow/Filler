@@ -91,7 +91,7 @@ void	parse_plateau(t_filler *filler,char *line)
 				filler->player == 'X'))
 					filler->plateau->heat_map[i][j] = 1;
 				else
-					filler->plateau->heat_map[i][j] = 2;
+					filler->plateau->heat_map[i][j] = -1;
 			}
 			j++;
 		}

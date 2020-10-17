@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.16)
 project(Filler C)
 
 set(CMAKE_C_STANDARD 11)
@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 11)
 include_directories(includes)
 include_directories(libft/includes)
 
-add_executable(Filler
+add_executable(marrow.filler
         includes/filler.h
         libft/ft_printf/sources/ft_big_x.c
         libft/ft_printf/sources/ft_c.c
@@ -97,6 +97,7 @@ add_executable(Filler
         libft/sources/ft_tolower.c
         libft/sources/ft_toupper.c
         libft/sources/get_next_line.c
+        sources/algorithm.c
         sources/init.c
         sources/main.c
         sources/solver.c

@@ -41,7 +41,11 @@ int		solve()
 		if (line)
 				ft_strdel(&line);
 	}
+	calc_heat_map(filler);
+	put_piece(filler);
+	ft_printf("%d %d\n",filler->x, filler->y);
 	//debug
+	/*
 	int		i;
 	int		j;
 
@@ -59,7 +63,6 @@ int		solve()
 		i++;
 	}
 	write(1,"\n",1);
-	ft_printf("%d\n",filler->plateau->heat_map[0][0]);
 	i = 0;
 	while(i < filler->piece->height)
 	{
@@ -73,6 +76,21 @@ int		solve()
 		write(1,"\n",1);
 		i++;
 	}
+	calc_heat_map(filler);
+
+	i = 0;
+	while(i < filler->plateau->height)
+	{
+		j = 0;
+		while (j < filler->plateau->width)
+		{
+
+			ft_printf("%-4d",filler->plateau->heat_map[i][j]);
+			j++;
+		}
+		write(1,"\n",1);
+		i++;
+	}*/
 
 	return (1);
 }
