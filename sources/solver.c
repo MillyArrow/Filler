@@ -6,7 +6,7 @@
 /*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 20:15:16 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/18 18:55:28 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/18 20:42:03 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,17 @@ int		solve()
 	put_piece(filler);
 	ft_printf("%d %d\n",filler->x, filler->y);
 
-	 //debug
 	/*
+	ft_putnbr(filler->x);
+	write(1," ",1);
+	ft_putnbr(filler->y);
+	write(1,"\n",1);
+	*
+	//ft_arrdel((void ***)&filler->plateau->heat_map);
+	//ft_arrdel((void ***)&filler->piece->map);
+	 //debug
+
+
 	int		i;
 	int		j;
 

@@ -99,6 +99,6 @@ int				get_next_line(const int fd, char **line);
 int				ft_get_number(const char *c, size_t *i);
 int				ft_number_length(int64_t number, int base);
 void			ft_putnbrll(__int64_t n, int base);
-void			ft_sdel(void ***arr);
+void			ft_arrdel(void ***arr);
 
 #endif

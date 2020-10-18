@@ -3,20 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marrow <marrow@student.42.fr>              +#+  +:+       +#+         #
+#    By: marrow <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/12 18:25:26 by marrow            #+#    #+#              #
-#    Updated: 2020/10/14 21:51:27 by marrow           ###   ########.fr        #
+#    Updated: 2020/10/18 19:41:19 by marrow           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = marrow.filler
 
 CC = gcc
-FLAGS =
-#-Wall -Wextra -Werror -O3 -c
-LIBRARIES = -lft -L$(LIBFT_DIRECTORY)
-INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS)
+FLAGS =-Wall -Wextra -Werror -O3
+LIBRARIES = -lft -L $(LIBFT_DIRECTORY)
+INCLUDES = -I $(HEADERS_DIRECTORY) -I $(LIBFT_HEADERS)
 
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 LIBFT_DIRECTORY = ./libft/
@@ -51,7 +50,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJECTS)
-	@$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS) -o $(NAME)
+	@$(CC) -o $(NAME) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJECTS)
 	@echo "\n$(NAME): $(GREEN)object files were created$(RESET)"
 	@echo "$(NAME): $(GREEN)$(NAME) was created$(RESET)"
 

@@ -6,7 +6,7 @@
 /*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 20:57:00 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/18 18:30:44 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/18 20:01:36 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,13 @@ int		check_player(t_filler *filler, char *line)
 
 int		get_size(int *height, int *width, char *line)
 {
-	int i;
-	int j;
 	char **split_line;
 
-	i = 0;
-	j = 0;
 	if (!(split_line = ft_strsplit(line,' ')))
 		return (0);
 	*height = ft_atoi(split_line[1]);
 	*width = ft_atoi(split_line[2]);
-	ft_sdel((void ***)&split_line);
+	ft_arrdel((void ***)&split_line);
 	return (1);
 }
 
@@ -89,9 +85,9 @@ void	parse_plateau(t_filler *filler,char *line)
 				filler->player == 'O') ||
 				(ft_toupper((line + space_i)[j]) == 'X' &&
 				filler->player == 'X'))
-					filler->plateau->heat_map[i][j] = -1;
+					filler->plateau->heat_map[i][j] = PLAYER;
 				else
-					filler->plateau->heat_map[i][j] = -2;
+					filler->plateau->heat_map[i][j] = ENEMY;
 			}
 			j++;
 		}

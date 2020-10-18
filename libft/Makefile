@@ -40,7 +40,7 @@ DIR_SRC_LIBFT = ./sources/
 DIR_OBJ_LIBFT = objects/
 
 SRC_LIBFT = \
-		ft_sdel.c \
+		ft_arrdel.c \
 		ft_atoi.c \
 		ft_bzero.c \
 		ft_create_elem.c \
