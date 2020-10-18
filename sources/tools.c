@@ -12,8 +12,13 @@
 
 #include "filler.h"
 
-int		check_player(t_filler *filler, char *line)
+int		check_player(t_filler *filler, char **line)
 {
+	while (get_next_line(0,&line) > 0)
+	{
+		if (line && !ft_strncmp(line, "$$$ exec",8))
+			break;
+	}
 	if (ft_strstr(line,NAME) && ft_strstr(line, "p1"))
 	{
 		filler->player = 'O';
@@ -138,4 +143,13 @@ void		parse_piece(t_filler *filler, char *line)
 		}
 		i++;
 	}
+}
+void		free_filler(t_filler *filler,char *line)
+{
+	if (filler->plateau->heat_map)
+		ft_arrdel((void ***)&filler->plateau->heat_map);
+	if (filler->piece->map)
+		ft_arrdel((void ***)&filler->piece->map);
+	if (line)
+		ft_strdel(&line);
 }

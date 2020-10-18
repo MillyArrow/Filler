@@ -21,41 +21,36 @@ int		solve()
 	fd = 0;
 	line = NULL;
 	filler = NULL;
-	if (!(filler = init_filler()))
+	if (!(filler = init_filler()) || !check_player(filler, &line))
 		return (0);
 	while(get_next_line(fd,&line) > 0)
 	{
-		if (line && !ft_strncmp(line, "$$$ exec",8))
-			if (!check_player(filler, line))
-				return (0);
 		if (line && !ft_strncmp(line, "Plateau",7))
 		{
-			create_map(filler,line);
+			if (!filler->plateau->heat_map)
+				create_map(filler,line);
 			parse_plateau(filler,line);
 		}
 		if (line && !ft_strncmp(line, "Piece",5))
 		{
 			create_piece(filler,line);
 			parse_piece(filler,line);
+			calc_heat_map(filler);
+			put_piece(filler);
+			ft_printf("%d %d\n",filler->x, filler->y);
 		}
+		//free_filler(filler,line);
+		if (filler->piece->map)
+			ft_arrdel((void ***)&filler->piece->map);
 		if (line)
-				ft_strdel(&line);
+			ft_strdel(&line);
 	}
 
-	calc_heat_map(filler);
-	put_piece(filler);
-	ft_printf("%d %d\n",filler->x, filler->y);
 
-	/*
-	ft_putnbr(filler->x);
-	write(1," ",1);
-	ft_putnbr(filler->y);
-	write(1,"\n",1);
-	*
-	//ft_arrdel((void ***)&filler->plateau->heat_map);
-	//ft_arrdel((void ***)&filler->piece->map);
+
+
 	 //debug
-
+/*
 
 	int		i;
 	int		j;
@@ -103,7 +98,7 @@ int		solve()
 		write(1,"\n",1);
 		i++;
 	}
-	*/
+*/
 
 	return (1);
 }

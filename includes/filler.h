@@ -52,7 +52,7 @@ t_filler		*init_filler();
 t_plateau		*init_plateau();
 t_piece			*init_piece();
 int				solve();
-int				check_player(t_filler *filler, char *line);
+int				check_player(t_filler *filler, char **line);
 int				get_size(int *height, int *width, char *line);
 int				create_map(t_filler *filler, char *line);
 int				create_piece(t_filler *filler,char *line);
@@ -63,5 +63,6 @@ int				calc_distance(t_filler *filler, int x, int y);
 void			calc_heat_map(t_filler *filler);
 void			put_piece(t_filler *filler);
 int				sum_around(t_filler *filler, int x, int y);
+void			free_filler(t_filler *filler,char *line);
 
 #endif

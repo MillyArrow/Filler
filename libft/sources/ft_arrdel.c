@@ -14,17 +14,19 @@
 
 void			ft_arrdel(void ***arr)
 {
-	void	**temp;
+	void	***temp;
+	int count = 0;
 
 	if (!(*arr))
 		return ;
-	temp = *arr;
-	while (**arr)
+	temp = arr;
+	while (**arr != NULL)
 	{
+		count++;
 		ft_memdel(*arr);
 		(*arr)++;
 	}
-	ft_memdel(temp);
+	ft_memdel(*temp);
 	temp = NULL;
 	*arr = temp;
 }
