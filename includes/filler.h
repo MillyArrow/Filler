@@ -17,8 +17,8 @@
 # include "libft.h"
 # include "ft_printf.h"
 # define NAME "marrow.filler"
-# define TRUE 1
-# define FALSE 0
+# define PLAYER -1
+# define ENEMY -2
 # define ABS(x) ((x > 0) ? (x) : (-x))
 
 

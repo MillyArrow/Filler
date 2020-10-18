@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solver.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 20:15:16 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/15 17:41:09 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/18 18:55:28 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ int		solve()
 		if (line)
 				ft_strdel(&line);
 	}
+
 	calc_heat_map(filler);
 	put_piece(filler);
 	ft_printf("%d %d\n",filler->x, filler->y);
-	//debug
+
+	 //debug
 	/*
 	int		i;
 	int		j;
@@ -56,7 +58,7 @@ int		solve()
 		while (j < filler->plateau->width)
 		{
 
-			ft_printf("%d ",filler->plateau->heat_map[i][j]);
+			ft_printf("%-2d ",filler->plateau->heat_map[i][j]);
 			j++;
 		}
 		write(1,"\n",1);
@@ -77,7 +79,8 @@ int		solve()
 		i++;
 	}
 	calc_heat_map(filler);
-
+	put_piece(filler);
+	ft_printf("%result: %d %d\n",filler->x, filler->y);
 	i = 0;
 	while(i < filler->plateau->height)
 	{
@@ -90,7 +93,8 @@ int		solve()
 		}
 		write(1,"\n",1);
 		i++;
-	}*/
+	}
+	*/
 
 	return (1);
 }

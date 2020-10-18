@@ -11,8 +11,8 @@ void calc_heat_map(t_filler *filler)
     {
 		j = 0;
 		while (j < filler->plateau->width) {
-			if (filler->plateau->heat_map[i][j] != 1 &&
-				filler->plateau->heat_map[i][j] != -1)
+			if (filler->plateau->heat_map[i][j] != PLAYER &&
+				filler->plateau->heat_map[i][j] != ENEMY)
 				filler->plateau->heat_map[i][j] = calc_distance(filler, i, j);
 			j++;
 		}
@@ -41,7 +41,7 @@ int	calc_distance(t_filler *filler, int x, int y)
 		j = 0;
 		while (j < filler->plateau->width)
 		{
-			if (filler->plateau->heat_map[i][j] == -1 &&
+			if (filler->plateau->heat_map[i][j] == ENEMY &&
 			manhattan_distance(x,y,i,j) < result)
 				result = manhattan_distance(x,y,i,j);
 			j++;
@@ -56,21 +56,33 @@ int sum_around(t_filler *filler, int x, int y)
 	int i;
 	int j;
 	int sum;
+	int rule;
 
 	sum = 0;
 	i = 0;
+	rule = 0;
+	if (x + filler->piece->height > filler->plateau->height ||
+		y + filler->piece->width > filler->plateau->width)
+		return (0);
 	while (i < filler->piece->height)
 	{
 		j = 0;
 		while (j < filler->piece->width)
 		{
-			if (filler->piece->map[i][j] == 1 && filler->plateau->heat_map[i + x][j + y] == 1)
+			if (filler->plateau->heat_map[i + x][j + y] == PLAYER &&
+			filler->piece->map[i][j] == 1)
+				++rule;
+			if ((filler->plateau->heat_map[i + x][j + y] == ENEMY &&
+			filler->piece->map[i][j] == 1) || rule > 1)
+				return (0);
+			if (filler->piece->map[i][j] == 1 &&
+			filler->plateau->heat_map[i + x][j + y])
 				sum += filler->plateau->heat_map[i + x][j + y];
 			j++;
 		}
 		i++;
 	}
-	return (sum);
+	return (rule == 1 ? sum : 0);
 }
 
 void	put_piece(t_filler *filler)

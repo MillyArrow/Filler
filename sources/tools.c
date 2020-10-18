@@ -6,7 +6,7 @@
 /*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 20:57:00 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/15 17:34:37 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/18 18:30:44 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		check_player(t_filler *filler, char *line)
 		filler->player = 'O';
 		filler->enemy = 'X';
 	}
-	else
+	else if (ft_strstr(line,NAME) && ft_strstr(line, "p2"))
 	{
 		filler->player = 'X';
 		filler->enemy = 'O';
@@ -89,9 +89,9 @@ void	parse_plateau(t_filler *filler,char *line)
 				filler->player == 'O') ||
 				(ft_toupper((line + space_i)[j]) == 'X' &&
 				filler->player == 'X'))
-					filler->plateau->heat_map[i][j] = 1;
-				else
 					filler->plateau->heat_map[i][j] = -1;
+				else
+					filler->plateau->heat_map[i][j] = -2;
 			}
 			j++;
 		}

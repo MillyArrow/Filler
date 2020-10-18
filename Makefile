@@ -31,7 +31,9 @@ SOURCES_LIST = \
 	main.c \
 	tools.c \
 	init.c \
-	solver.c
+	solver.c \
+	algorithm.c
+
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 OBJECTS_DIRECTORY = objects/
