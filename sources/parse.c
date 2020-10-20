@@ -6,13 +6,13 @@
 /*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 07:35:27 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/20 08:11:23 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/20 08:16:29 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void		parse_piece(t_filler *filler, char *line)
+void			parse_piece(t_filler *filler, char *line)
 {
 	int		i;
 	int		j;
@@ -45,12 +45,12 @@ void			fck_norm(t_filler *filler, int *space_i, int *i, char *line)
 		if ((line + *space_i)[j] == '.')
 			filler->plateau->heat_map[*i][j] = 0;
 		else if (ft_toupper((line + *space_i)[j]) == 'O' ||
-				 ft_toupper((line + *space_i)[j]) == 'X')
+				ft_toupper((line + *space_i)[j]) == 'X')
 		{
 			if ((ft_toupper((line + *space_i)[j]) == 'O' &&
-				 filler->player == 'O') ||
-				(ft_toupper((line + *space_i)[j]) == 'X' &&
-				 filler->player == 'X'))
+				filler->player == 'O') ||
+				(ft_toupper((line + *space_i)[j]) == 'X' &
+				filler->player == 'X'))
 				filler->plateau->heat_map[*i][j] = PLAYER;
 			else
 				filler->plateau->heat_map[*i][j] = ENEMY;
@@ -59,7 +59,7 @@ void			fck_norm(t_filler *filler, int *space_i, int *i, char *line)
 	}
 }
 
-void		parse_plateau(t_filler *filler, char *line)
+void			parse_plateau(t_filler *filler, char *line)
 {
 	int		i;
 	int		space_i;

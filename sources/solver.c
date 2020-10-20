@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_solver.c                                        :+:      :+:    :+:   */
+/*   solver.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 20:15:16 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/20 07:57:14 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/20 08:11:23 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			manhattan_distance(int x, int y, int i, int j)
 	return (distance);
 }
 
-int		solve(t_filler *filler, char *line)
+int			solve(t_filler *filler, char *line)
 {
 	while (get_next_line(FD, &line) > 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 07:49:50 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/20 08:11:59 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/20 08:17:37 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int			calc_distance(t_filler *filler, int x, int y)
 	return (result);
 }
 
-int				calc_sum(t_filler *filler, int x, int y, int *rule)
+int			calc_sum(t_filler *filler, int x, int y, int *rule)
 {
 	int i;
 	int j;
@@ -64,14 +64,16 @@ int				calc_sum(t_filler *filler, int x, int y, int *rule)
 
 	sum = 0;
 	i = 0;
-	while (i < filler->piece->height) {
+	while (i < filler->piece->height)
+	{
 		j = 0;
-		while (j < filler->piece->width) {
+		while (j < filler->piece->width)
+		{
 			if (filler->plateau->heat_map[i + x][j + y] == PLAYER &&
 				filler->piece->map[i][j] == 1)
 				++(*rule);
 			if ((filler->plateau->heat_map[i + x][j + y] == ENEMY &&
-				 filler->piece->map[i][j] == 1) || *rule > 1)
+				filler->piece->map[i][j] == 1) || *rule > 1)
 				return (0);
 			if (filler->piece->map[i][j] == 1 &&
 				filler->plateau->heat_map[i + x][j + y])
