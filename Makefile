@@ -13,8 +13,7 @@
 NAME = marrow.filler
 
 CC = gcc
-FLAGS =
-#-Wall -Wextra -Werror -O3
+FLAGS =-Wall -Wextra -Werror -O3
 LIBRARIES = -lft -L $(LIBFT_DIRECTORY)
 INCLUDES = -I $(HEADERS_DIRECTORY) -I $(LIBFT_HEADERS)
 
