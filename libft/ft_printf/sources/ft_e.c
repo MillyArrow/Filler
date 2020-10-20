@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_e.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/05/09 20:04:24 by mac               #+#    #+#             */
+/*   Updated: 2020/05/09 20:04:55 by mac              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -28,7 +39,7 @@ void				ft_round_e(t_spec *specifier, long double number)
 		specifier->int_part++;
 }
 
-void		ft_e(t_spec *specifier, va_list args)
+void				ft_e(t_spec *specifier, va_list args)
 {
 	long double number;
 	size_t		l_int_part;

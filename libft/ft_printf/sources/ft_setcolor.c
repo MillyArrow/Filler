@@ -6,43 +6,35 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 13:31:34 by mac               #+#    #+#             */
-/*   Updated: 2020/05/09 17:10:27 by mac              ###   ########.fr       */
+/*   Updated: 2020/05/09 20:18:40 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_setcolor(char *str, size_t *i, t_spec *specifier)
+int		ft_setcolor(char *str, size_t *i, t_spec *specifier)
 {
-    int     j;
-    
-    (*i)++;
-    j = 0;
+	int		j;
+
+	(*i)++;
+	j = 0;
 	while (str[*i] != '}')
-    {
+	{
 		specifier->color[j] = str[*i];
 		(*i)++;
-        j++;
-    }
+		j++;
+	}
 	(*i)++;
-    specifier->color[j] = '\0';
-    if (!ft_strcmp(specifier->color, "black"))
-    	ft_putstrs(black,specifier);
+	specifier->color[j] = '\0';
+	if (!ft_strcmp(specifier->color, "black"))
+		ft_putstrs(BLACK, specifier);
 	if (!ft_strcmp(specifier->color, "red"))
-		ft_putstrs(red, specifier);
-	if (!ft_strcmp(specifier->color, "green"))
-		ft_putstrs(green, specifier);
+		ft_putstrs(RED, specifier);
 	if (!ft_strcmp(specifier->color, "yellow"))
-		ft_putstrs(yellow, specifier);
-	if (!ft_strcmp(specifier->color, "purple"))
-		ft_putstrs(purple, specifier);
+		ft_putstrs(YELLOW, specifier);
 	if (!ft_strcmp(specifier->color, "cyan"))
-		ft_putstrs(cyan, specifier);
-	if (!ft_strcmp(specifier->color, "white"))
-		ft_putstrs(white, specifier);
-	if (!ft_strcmp(specifier->color, "blue"))
-		ft_putstrs(blue, specifier);
+		ft_putstrs(CYAN, specifier);
 	if (!ft_strcmp(specifier->color, "eoc"))
-		ft_putstrs(eoc, specifier);
-    return (0);
+		ft_putstrs(EOC, specifier);
+	return (0);
 }

@@ -3,17 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marrow <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: marrow <marrow@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/12 18:25:26 by marrow            #+#    #+#              #
-#    Updated: 2020/10/18 19:41:19 by marrow           ###   ########.fr        #
+#    Updated: 2020/10/20 07:31:30 by marrow           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = marrow.filler
 
 CC = gcc
-FLAGS =-Wall -Wextra -Werror -O3
+FLAGS =
+#-Wall -Wextra -Werror -O3
 LIBRARIES = -lft -L $(LIBFT_DIRECTORY)
 INCLUDES = -I $(HEADERS_DIRECTORY) -I $(LIBFT_HEADERS)
 
@@ -31,7 +32,8 @@ SOURCES_LIST = \
 	tools.c \
 	init.c \
 	solver.c \
-	algorithm.c
+	algorithm.c \
+	parse.c
 
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
@@ -44,7 +46,6 @@ OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
 GREEN = \033[0;32m
 RED = \033[0;31m
 RESET = \033[0m
-
 .PHONY: all clean fclean re
 
 all: $(NAME)

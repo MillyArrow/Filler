@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 23:29:48 by marrow            #+#    #+#             */
-/*   Updated: 2020/05/09 17:16:10 by mac              ###   ########.fr       */
+/*   Updated: 2020/05/09 20:30:05 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ void		ft_putstrs(char const *s, t_spec *spec)
 			ft_putch(*s++, spec);
 }
 
-int			ft_dota(va_list parameters,\
-const char *restrict format)
+int			ft_dota(va_list parameters, const char *restrict format)
 {
 	char	*str;
 	size_t	i;
@@ -51,7 +50,6 @@ const char *restrict format)
 
 	str = (char*)format;
 	printed = 0;
-	specifier = NULL;
 	i = 0;
 	specifier = (t_spec*)ft_memalloc(sizeof(t_spec));
 	while (str[i])

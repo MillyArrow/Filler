@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_f.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:03:10 by marrow            #+#    #+#             */
-/*   Updated: 2020/03/03 21:03:13 by marrow           ###   ########.fr       */
+/*   Updated: 2020/05/09 20:22:55 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void		ft_putnbr_f(t_spec *specifier, long double number, size_t int_part)
 	t_number = number;
 	if (!(temp = t_number) && !specifier->int_part)
 	{
-	    specifier->width--;
-	    ft_putch('0', specifier);
+		specifier->width--;
+		ft_putch('0', specifier);
 	}
 	if (specifier->int_part)
 		ft_putnbrs_u(specifier->int_part, 10, specifier);
@@ -115,10 +115,10 @@ void		ft_f(t_spec *specifier, va_list args)
 		specifier->minus = 1;
 	specifier->int_part = number;
 	ft_round(specifier, number);
-    l_int_part = ft_l_num(specifier->int_part);
-    specifier->len_f = l_int_part + specifier->accuracy;
-    if (specifier->accuracy != 0 || specifier->flag[3] == '#')
-        specifier->len_f++;
+	l_int_part = ft_l_num(specifier->int_part);
+	specifier->len_f = l_int_part + specifier->accuracy;
+	if (specifier->accuracy != 0 || specifier->flag[3] == '#')
+		specifier->len_f++;
 	if (display_minus_f(specifier, number, l_int_part))
 		return ;
 	display_f(specifier, number, l_int_part);

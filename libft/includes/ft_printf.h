@@ -6,7 +6,7 @@
 /*   By: marrow <marrow@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 20:35:53 by marrow            #+#    #+#             */
-/*   Updated: 2020/10/14 18:29:40 by marrow           ###   ########.fr       */
+/*   Updated: 2020/10/20 06:34:02 by marrow           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 
 # include <stdarg.h>
 # include "libft.h"
-# include <limits.h>
 
-# define black		"\e[00;30m"
-# define red		"\e[00;31m"
-# define green		"\e[00;32m"
-# define yellow		"\e[01;33m"
-# define blue		"\e[00;34m"
-# define purple		"\e[00;35m"
-# define cyan		"\e[00;36m"
-# define white		"\e[01;37m"
-# define eoc		"\e[m"
+# define BLACK		"\e[00;30m"
+# define RED		"\e[00;31m"
+# define GREEN		"\e[00;32m"
+# define YELLOW		"\e[01;33m"
+# define BLUE		"\e[00;34m"
+# define PURPLE		"\e[00;35m"
+# define CYAN		"\e[00;36m"
+# define WHITE		"\e[01;37m"
+# define EOC		"\e[m"
 
 typedef struct		s_spec
 {
@@ -114,5 +113,5 @@ void				ft_width(t_spec *specifier, int length);
 void				print_width_f(t_spec *specifier);
 void				ft_width_f(t_spec *specifier);
 void				ft_e(t_spec *specifier, va_list args);
-int     			ft_setcolor(char *str, size_t *i, t_spec *specifier);
+int					ft_setcolor(char *str, size_t *i, t_spec *specifier);
 #endif

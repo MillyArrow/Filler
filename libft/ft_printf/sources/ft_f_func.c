@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_f_func.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marrow <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 21:06:09 by marrow            #+#    #+#             */
-/*   Updated: 2020/03/07 21:06:11 by marrow           ###   ########.fr       */
+/*   Updated: 2020/05/09 20:07:50 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void				ft_round(t_spec *specifier, long double number)
 	}
 	l_num = ft_l_num(number / 10);
 	number = (temp % 10 >= 5) ? number / 10 + 1 : number / 10;
- 	if ((l_num || !specifier->accuracy) && \
-	l_num != (ft_l_num(number)) && !check)
+	if ((l_num || !specifier->accuracy) && \
+		l_num != (ft_l_num(number)) && !check)
 		specifier->int_part++;
 }
