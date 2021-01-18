@@ -26,5 +26,5 @@ Second step is placing token according to restrictions. The best place of token 
 ### Usage
 To compile run **make** and then
 ```
-./filler_vm -p1 ./dshala.filler -p2./resources/players/[player_name].filler -f -v ./resources/map/map[0-2]
+./filler_vm -p1 ./marrow.filler -p2./resources/players/[player_name].filler -f -v ./resources/map/map[0-2]
 ```
